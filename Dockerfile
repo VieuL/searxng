@@ -17,7 +17,7 @@ ENV INSTANCE_NAME=searxng \
     SEARXNG_SETTINGS_PATH=/etc/searxng/settings.yml \
     UWSGI_SETTINGS_PATH=/etc/searxng/uwsgi.ini \
     UWSGI_WORKERS=%k \
-    UWSGI_THREADS=4
+    UWSGI_THREADS=2
 
 WORKDIR /usr/local/searxng
 

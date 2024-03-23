@@ -137,7 +137,7 @@ redis:
 #
 outgoing:
   # default timeout in seconds, can be override by engine
-  request_timeout: 3.0
+  request_timeout: 8.0
   # the maximum timeout in seconds
   # max_request_timeout: 10.0
   # suffix of searx_useragent, could contain information like an email address
