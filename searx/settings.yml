@@ -408,31 +408,18 @@ engines:
     shortcut: bt
     disabled: true
 
-  - name: ccc-tv
-    engine: xpath
-    paging: false
-    search_url: https://media.ccc.de/search/?q={query}
-    url_xpath: //div[@class="caption"]/h3/a/@href
-    title_xpath: //div[@class="caption"]/h3/a/text()
-    content_xpath: //div[@class="caption"]/h4/@title
-    categories: videos
-    disabled: true
-    shortcut: c3tv
-    about:
-      website: https://media.ccc.de/
-      wikidata_id: Q80729951
-      official_api_documentation: https://github.com/voc/voctoweb
-      use_official_api: false
-      require_api_key: false
-      results: HTML
-      # We don't set language: de here because media.ccc.de is not just
-      # for a German audience. It contains many English videos and many
-      # German videos have English subtitles.
-
   - name: openverse
     engine: openverse
     categories: images
     shortcut: opv
+
+  - name: media.ccc.de
+    engine: ccc_media
+    shortcut: c3tv
+    # We don't set language: de here because media.ccc.de is not just
+    # for a German audience. It contains many English videos and many
+    # German videos have English subtitles.
+    disabled: true
 
   - name: chefkoch
     engine: chefkoch
@@ -478,6 +465,7 @@ engines:
     shortcut: yep
     categories: general
     search_type: web
+    timeout: 5
     disabled: true
 
   - name: yep images
@@ -908,6 +896,11 @@ engines:
     shortcut: hn
     disabled: true
 
+  - name: hex
+    engine: hex
+    shortcut: hex
+    disabled: true
+
   - name: hoogle
     engine: xpath
     search_url: https://hoogle.haskell.org/?hoogle={query}
@@ -1030,6 +1023,16 @@ engines:
     shortcut: loc
     categories: images
 
+  - name: libretranslate
+    engine: libretranslate
+    # https://github.com/LibreTranslate/LibreTranslate?tab=readme-ov-file#mirrors
+    base_url:
+      - https://translate.terraprint.co
+      - https://trans.zillyhuhn.com
+    # api_key: abc123
+    shortcut: lt
+    disabled: true
+
   - name: lingva
     engine: lingva
     shortcut: lv
@@ -1050,25 +1053,6 @@ engines:
     about:
       website: https://lobste.rs/
       wikidata_id: Q60762874
-      official_api_documentation:
-      use_official_api: false
-      require_api_key: false
-      results: HTML
-
-  - name: azlyrics
-    shortcut: lyrics
-    engine: xpath
-    timeout: 4.0
-    disabled: true
-    categories: [music, lyrics]
-    paging: true
-    search_url: https://search.azlyrics.com/search.php?q={query}&w=lyrics&p={pageno}
-    url_xpath: //td[@class="text-left visitedlyr"]/a/@href
-    title_xpath: //span/b/text()
-    content_xpath: //td[@class="text-left visitedlyr"]/a/small
-    about:
-      website: https://azlyrics.com
-      wikidata_id: Q66372542
       official_api_documentation:
       use_official_api: false
       require_api_key: false
@@ -1240,6 +1224,11 @@ engines:
       require_api_key: false
       results: JSON
 
+  - name: openmeteo
+    engine: open_meteo
+    shortcut: om
+    disabled: true
+
   # - name: opensemanticsearch
   #   engine: opensemantic
   #   shortcut: oss
@@ -1339,10 +1328,10 @@ engines:
     disabled: true
     inactive: true
     pixiv_image_proxies:
-      - pximg.example.org
+      - https://pximg.example.org
       # A proxy is required to load the images. Hosting an image proxy server
       # for Pixiv:
-      #    --> https://codeberg.org/VnPower/PixivFE/wiki/Hosting-an-image-proxy-server-for-Pixiv
+      #    --> https://pixivfe.pages.dev/hosting-image-proxy-server/
       # Proxies from public instances.  Ask the public instances owners if they
       # agree to receive traffic from SearXNG!
       #    --> https://codeberg.org/VnPower/PixivFE#instances
@@ -1517,6 +1506,20 @@ engines:
   #    shortcut: scs
   #    engine: scanr_structures
   #    disabled: true
+
+  - name: searchmysite
+    engine: xpath
+    shortcut: sms
+    categories: general
+    paging: true
+    search_url: https://searchmysite.net/search/?q={query}&page={pageno}
+    results_xpath: //div[contains(@class,'search-result')]
+    url_xpath: .//a[contains(@class,'result-link')]/@href
+    title_xpath: .//span[contains(@class,'result-title-txt')]/text()
+    content_xpath: ./p[@id='result-hightlight']
+    disabled: true
+    about:
+      website: https://searchmysite.net
 
   - name: sepiasearch
     engine: sepiasearch
@@ -1875,6 +1878,28 @@ engines:
     engine: wikicommons
     shortcut: wc
     categories: images
+    search_type: images
+    number_of_results: 10
+
+  - name: wikicommons.videos
+    engine: wikicommons
+    shortcut: wcv
+    categories: videos
+    search_type: videos
+    number_of_results: 10
+
+  - name: wikicommons.audio
+    engine: wikicommons
+    shortcut: wca
+    categories: music
+    search_type: audio
+    number_of_results: 10
+
+  - name: wikicommons.files
+    engine: wikicommons
+    shortcut: wcf
+    categories: files
+    search_type: files
     number_of_results: 10
 
   - name: wolframalpha
