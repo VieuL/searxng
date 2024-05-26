@@ -14,20 +14,22 @@
 # jenishngl <jenishngl+codeberg@gmail.com>, 2023.
 # sriramsekar <srirams_24@yahoo.com>, 2023.
 # Eshan-K-I <2027eiyer@tjhsst.edu>, 2024.
+# ecevinoth <ecevinoth@users.noreply.translate.codeberg.org>, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version:  searx\n"
+"Project-Id-Version: searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-04-27 16:29+0000\n"
-"PO-Revision-Date: 2024-01-24 12:56+0000\n"
-"Last-Translator: Eshan-K-I <2027eiyer@tjhsst.edu>\n"
+"POT-Creation-Date: 2024-05-09 15:27+0000\n"
+"PO-Revision-Date: 2024-05-22 16:18+0000\n"
+"Last-Translator: ecevinoth <ecevinoth@users.noreply.translate.codeberg.org>\n"
+"Language-Team: Tamil <https://translate.codeberg.org/projects/searxng/"
+"searxng/ta/>\n"
 "Language: ta\n"
-"Language-Team: Tamil "
-"<https://translate.codeberg.org/projects/searxng/searxng/ta/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.5.5\n"
 "Generated-By: Babel 2.14.0\n"
 
 #. CONSTANT_NAMES['NO_SUBGROUPING']
@@ -78,7 +80,7 @@ msgstr "வானொலி"
 #. CATEGORY_NAMES['TV']
 #: searx/searxng.msg
 msgid "tv"
-msgstr ""
+msgstr "தொலைக்காட்சி"
 
 #. CATEGORY_NAMES['IT']
 #: searx/searxng.msg
@@ -491,6 +493,10 @@ msgstr "புத்தகத்தின் மதிப்பீடு"
 msgid "File quality"
 msgstr "கோப்பின் தரம்"
 
+#: searx/plugins/calculator.py:12
+msgid "Calculate mathematical expressions via the search bar"
+msgstr ""
+
 #: searx/plugins/hash_plugin.py:10
 msgid "Converts strings to different hash digests."
 msgstr "சரங்களை வெவ்வேறு ஹாஷ் டைஜெஸ்ட்களாக மாற்றுகிறது."
@@ -569,7 +575,7 @@ msgstr ""
 "உங்களை உளவு பார்த்து பின்தொடர பயன்படும் எழுத்துக்களை வலைதள "
 "முகவரியிலிருந்து நீக்குக"
 
-#: searx/plugins/unit_converter.py:10
+#: searx/plugins/unit_converter.py:29
 msgid "Convert between units"
 msgstr ""
 
@@ -748,27 +754,27 @@ msgstr "நினைவிகள்"
 msgid "Answers"
 msgstr "பதில்கள்"
 
-#: searx/templates/simple/results.html:38
+#: searx/templates/simple/results.html:42
 msgid "Number of results"
 msgstr "முடிவுகளின் எண்ணிக்கை"
 
-#: searx/templates/simple/results.html:44
+#: searx/templates/simple/results.html:48
 msgid "Info"
 msgstr "தகவல்"
 
-#: searx/templates/simple/results.html:73
+#: searx/templates/simple/results.html:77
 msgid "Try searching for:"
 msgstr "இதுபோல் தேடி பார்க்கவும்"
 
-#: searx/templates/simple/results.html:105
+#: searx/templates/simple/results.html:109
 msgid "Back to top"
 msgstr ""
 
-#: searx/templates/simple/results.html:123
+#: searx/templates/simple/results.html:127
 msgid "Previous page"
 msgstr "முந்தைய பக்கம்"
 
-#: searx/templates/simple/results.html:141
+#: searx/templates/simple/results.html:145
 msgid "Next page"
 msgstr "அடுத்த பக்கம்"
 
@@ -1881,4 +1887,3 @@ msgstr "காணொளிகளை மறை"
 #~ "எங்களால் எந்ததொரு பதில்களையும் தேட இயலவில்லை."
 #~ " தயவு செய்து வேறொரு வினவலில் அல்லது "
 #~ "கூடுதலானப் பிரிவுகளில் தேடவும்."
-
