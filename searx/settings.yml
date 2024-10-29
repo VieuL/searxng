@@ -2,7 +2,7 @@ general:
   # Debug mode, only for development. Is overwritten by ${SEARXNG_DEBUG}
   debug: false
   # displayed name
-  instance_name: "SearXNG"
+  instance_name: "MinervaSXNG"
   # For example: https://example.com/privacy
   privacypolicy_url: false
   # use true to use your own donation page written in searx/info/en/donate.md
@@ -44,13 +44,13 @@ search:
   favicon_resolver: ""
   # Default search language - leave blank to detect from browser information or
   # use codes from 'languages.py'
-  default_lang: "auto"
+  default_lang: "en"
   # max_page: 0  # if engine supports paging, 0 means unlimited numbers of pages
   # Available languages
-  # languages:
+  languages:
   #   - all
-  #   - en
-  #   - en-US
+    - en
+    - en-US
   #   - de
   #   - it-IT
   #   - fr
@@ -78,6 +78,7 @@ search:
   formats:
     - json
     - rss
+    - html
 
 server:
   # Is overwritten by ${SEARXNG_PORT} and ${SEARXNG_BIND_ADDRESS}
@@ -866,6 +867,8 @@ engines:
     base_url: https://gitlab.com
     shortcut: gl
     disabled: true
+    timeout: 10.0
+    disabled: false
     about:
       website: https://gitlab.com/
       wikidata_id: Q16639197
@@ -887,7 +890,7 @@ engines:
     engine: gitea
     base_url: https://codeberg.org
     shortcut: cb
-    disabled: true
+    disabled: false
 
   - name: gitea.com
     engine: gitea
@@ -965,7 +968,7 @@ engines:
     content_xpath: .//div[contains(@class, "article-formatted-body")]
     categories: it
     timeout: 4.0
-    disabled: true
+    disabled: false
     shortcut: habr
     about:
       website: https://habr.com/
@@ -978,7 +981,7 @@ engines:
   - name: hackernews
     engine: hackernews
     shortcut: hn
-    disabled: true
+    disabled: false
 
   - name: hex
     engine: hex
@@ -1016,12 +1019,12 @@ engines:
     engine: imdb
     shortcut: imdb
     timeout: 6.0
-    disabled: true
+    disabled: false
 
   - name: imgur
     engine: imgur
     shortcut: img
-    disabled: true
+    disabled: false
 
   - name: ina
     engine: ina
@@ -1235,7 +1238,7 @@ engines:
     engine: mwmbl
     # api_url: https://api.mwmbl.org
     shortcut: mwm
-    disabled: true
+    disabled: false
 
   - name: npm
     engine: npm
@@ -1276,7 +1279,7 @@ engines:
   - name: odysee
     engine: odysee
     shortcut: od
-    disabled: true
+    disabled: false
 
   - name: openairedatasets
     engine: json_engine
@@ -1467,7 +1470,7 @@ engines:
     categories: [general, web]
     shortcut: ps
     timeout: 4.0
-    disabled: true
+    disabled: false
 
   - name: presearch images
     engine: presearch
@@ -1476,7 +1479,7 @@ engines:
     categories: [images, web]
     timeout: 4.0
     shortcut: psimg
-    disabled: true
+    disabled: false
 
   - name: presearch videos
     engine: presearch
@@ -1485,7 +1488,7 @@ engines:
     categories: [general, web]
     timeout: 4.0
     shortcut: psvid
-    disabled: true
+    disabled: false
 
   - name: presearch news
     engine: presearch
@@ -1494,7 +1497,7 @@ engines:
     categories: [news, web]
     timeout: 4.0
     shortcut: psnews
-    disabled: true
+    disabled: false
 
   - name: pub.dev
     engine: xpath
@@ -1584,25 +1587,7 @@ engines:
     engine: reddit
     shortcut: re
     page_size: 25
-    disabled: true
-
-  - name: right dao
-    engine: xpath
-    paging: true
-    page_size: 12
-    search_url: https://rightdao.com/search?q={query}&start={pageno}
-    results_xpath: //div[contains(@class, "description")]
-    url_xpath: ../div[contains(@class, "title")]/a/@href
-    title_xpath: ../div[contains(@class, "title")]
-    content_xpath: .
-    categories: general
-    shortcut: rd
-    disabled: true
-    about:
-      website: https://rightdao.com/
-      use_official_api: false
-      require_api_key: false
-      results: HTML
+    disabled: false
 
   - name: rottentomatoes
     engine: rottentomatoes
@@ -1636,7 +1621,7 @@ engines:
     url_xpath: .//a[contains(@class,'result-link')]/@href
     title_xpath: .//span[contains(@class,'result-title-txt')]/text()
     content_xpath: ./p[@id='result-hightlight']
-    disabled: true
+    disabled: false
     about:
       website: https://searchmysite.net
 
@@ -1735,7 +1720,7 @@ engines:
     engine: startpage
     shortcut: sp
     timeout: 6.0
-    disabled: true
+    disabled: false
     additional_tests:
       rosebud: *test_rosebud
 
@@ -1843,28 +1828,28 @@ engines:
     categories: general
     search_type: web
     shortcut: yd
-    disabled: true
-    inactive: true
+    disabled: false
+    inactive: false
 
   - name: yandex images
     engine: yandex
     categories: images
     search_type: images
     shortcut: ydi
-    disabled: true
-    inactive: true
+    disabled: false
+    inactive: false
 
   - name: yandex music
     engine: yandex_music
     shortcut: ydm
-    disabled: true
+    disabled: false
     # https://yandex.com/support/music/access.html
-    inactive: true
+    inactive: false
 
   - name: yahoo
     engine: yahoo
     shortcut: yh
-    disabled: true
+    disabled: false
 
   - name: yahoo news
     engine: yahoo_news
@@ -1898,7 +1883,7 @@ engines:
     content_query: Snippet
     categories: [general, web]
     shortcut: wib
-    disabled: true
+    disabled: false
     about:
       website: https://wiby.me/
 
@@ -1932,7 +1917,7 @@ engines:
     categories: [general, wikimedia]
     base_url: "https://{language}.wikiquote.org/"
     search_type: text
-    disabled: true
+    disabled: false
     additional_tests:
       rosebud: *test_rosebud
     about:
@@ -1957,7 +1942,7 @@ engines:
     categories: [general, science, wikimedia]
     base_url: "https://species.wikimedia.org/"
     search_type: text
-    disabled: true
+    disabled: false
     about:
       website: https://species.wikimedia.org/
       wikidata_id: Q13679
@@ -1989,7 +1974,7 @@ engines:
     categories: [general, wikimedia]
     base_url: "https://{language}.wikiversity.org/"
     search_type: text
-    disabled: true
+    disabled: false
     about:
       website: https://www.wikiversity.org/
       wikidata_id: Q370
@@ -2046,7 +2031,7 @@ engines:
     engine: wolframalpha_noapi
     timeout: 6.0
     categories: general
-    disabled: true
+    disabled: false
 
   - name: dictzone
     engine: dictzone
@@ -2108,7 +2093,7 @@ engines:
     shortcut: mjk
     engine: mojeek
     categories: [general, web]
-    disabled: true
+    disabled: fasle
 
   - name: mojeek images
     shortcut: mjkimg
@@ -2116,7 +2101,7 @@ engines:
     categories: [images, web]
     search_type: images
     paging: false
-    disabled: true
+    disabled: fasle
 
   - name: mojeek news
     shortcut: mjknews
@@ -2124,7 +2109,7 @@ engines:
     categories: [news, web]
     search_type: news
     paging: false
-    disabled: true
+    disabled: false
 
   - name: moviepilot
     engine: moviepilot
@@ -2142,7 +2127,7 @@ engines:
     content_xpath: //div[@class="total_dsc_wrap"]/a
     first_page_num: 1
     page_size: 10
-    disabled: true
+    disabled: false
     about:
       website: https://www.naver.com/
       wikidata_id: Q485639
@@ -2264,7 +2249,7 @@ engines:
     shortcut: senews
     categories: news
     seekr_category: news
-    disabled: true
+    disabled: false
 
   - name: seekr images
     engine: seekr
