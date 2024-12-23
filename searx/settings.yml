@@ -868,7 +868,6 @@ engines:
     shortcut: gl
     disabled: true
     timeout: 10.0
-    disabled: false
     about:
       website: https://gitlab.com/
       wikidata_id: Q16639197
