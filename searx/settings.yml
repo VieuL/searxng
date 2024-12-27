@@ -2092,7 +2092,7 @@ engines:
     shortcut: mjk
     engine: mojeek
     categories: [general, web]
-    disabled: fasle
+    disabled: false
 
   - name: mojeek images
     shortcut: mjkimg
@@ -2100,7 +2100,7 @@ engines:
     categories: [images, web]
     search_type: images
     paging: false
-    disabled: fasle
+    disabled: false
 
   - name: mojeek news
     shortcut: mjknews
@@ -2164,7 +2164,7 @@ engines:
     # alternatives see: https://instances.joinpeertube.org/instances
     # base_url: https://tube.4aem.com
     categories: videos
-    disabled: true
+    disabled: false
     timeout: 6.0
 
   - name: mediathekviewweb
@@ -2199,7 +2199,7 @@ engines:
     categories: images
     search_type: image
     shortcut: yai
-    disabled: true
+    disabled: false
     # timeout can be reduced in 'local' search mode
     timeout: 5.0
 
@@ -2256,7 +2256,7 @@ engines:
     shortcut: seimg
     categories: images
     seekr_category: images
-    disabled: true
+    disabled: false
 
   - name: seekr videos
     engine: seekr
@@ -2264,7 +2264,7 @@ engines:
     shortcut: sevid
     categories: videos
     seekr_category: videos
-    disabled: true
+    disabled: false
 
   - name: stract
     engine: stract
